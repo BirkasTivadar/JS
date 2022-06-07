@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        /* 
+        function getGrossPrice(param = {
+            netPrice: 1000,
+            vatPercent: 27,
+            discountPercent: 5
+        }) {
+            return param.netPrice * ((100 - param.discountPercent) / 100) * (1 + param.vatPercent / 100);
+        }
+        // paraméter adás nélkül jól működik
+        console.log(getGrossPrice());
+
+        // de paraméterrel, csak ha mindet megadom
+        console.log(getGrossPrice({
+            netPrice: 5000,
+            vatPercent: 27,
+            discountPercent: 5
+        }));
+        
+        // egyébként nem
+        console.log(getGrossPrice({
+            netPrice: 2000
+        }));
+        */
+
+        // Megoldás
+        /* 
+        ha olyan objectet adok meg, amely nem tartalmazza mind a három property-t,
+        amire szükségem van, akkor az megadott objektumból fogja kiszedni 
+        */
+        function getGrossPrice({
+            netPrice = 1000,
+            vatPercent = 27,
+            discountPercent = 5
+        } = {}) {
+            return netPrice * ((100 - discountPercent) / 100) * (1 + vatPercent / 100);
+        }
+        // paraméter adás nélkül jól működik
+        console.log(getGrossPrice());
+
+        // de paraméterrel, csak ha mindet megadom
+        console.log(getGrossPrice({
+            netPrice: 5000,
+            vatPercent: 27,
+            discountPercent: 10
+        }));
+
+        // egyébként nem
+        console.log(getGrossPrice({
+            netPrice: 2000
+        }));
+    </script>
+
+
+</body>
+
+</html>
