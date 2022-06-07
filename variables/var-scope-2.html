@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var globalScope = 'global';
+
+        function sampleFunction() {
+            var globalScope = 'local';
+            console.log(globalScope); // a függvényen belül létrehozott érték íródik ki
+        }
+
+        sampleFunction();
+        console.log(globalScope); // a globálisan létrehozott érték íródik ki
+    </script>
+
+</body>
+
+</html>

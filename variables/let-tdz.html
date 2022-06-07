@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // console.log(samleVariable);
+        let samleVariable = 'sample';
+        /* 
+        itt is van hoisting, 
+        DE hiába jön létre, nem férek hozzá mielőtt inicializálom, nem kap automatikusan 'undefined' kezdőértéket
+        */
+
+        var samleVariable2 = 'sample2';
+        console.log(window.samleVariable2);
+        // minden var-al létrehozott változó hozzá lesz kötve a window globális objektumhoz
+
+        console.log(window.samleVariable);
+        /* 
+            a let-el létrehozott változók viszont nincsenek hozzákötve a window-hoz,
+            nem érhetőek el azon keresztül
+        */
+    </script>
+
+</body>
+
+</html>
