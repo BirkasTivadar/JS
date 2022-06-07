@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        /* 
+        Ha a strict módot kikommentelem, akkor is működik a freeze, nem változtatható meg egy tulajdonság sem,
+        DE nem kapok hibaüzenetet
+        */
+
+        // Mindegy, hogy const, let, vagy var kulcsszóval deklarálom az objectet a freeze metódusnál.
+        const user = {
+            firstName: 'John',
+            lastName: 'Doe'
+        };
+
+        Object.freeze(user);
+        // Az Object freeze metódusával az adott objektumot le tudom fagyasztani, ezután semmilyen adatát nem tudom módosítani.
+        user.firstName = 'Jane';
+    </script>
+
+</body>
+
+</html>
