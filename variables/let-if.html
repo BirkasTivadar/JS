@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        /* 
+                let value = 1;
+                if (value === 1) {
+                    let result = true;
+                } else {
+                    let result = false;
+                }
+                console.log(result);
+                // hibát jelez, mert a blokkokon belül hozuuk létre a result változót,
+                // ezért is kell külön az if és külön az else ágban deklarálni
+                 */
+
+        // A megoldás, ha a blokkon kívül deklarálom a változót, és a blokkon belül már csak értéket adok neki
+
+        let value = 1;
+        let result;
+        if (value === 1) {
+            result = true;
+        } else {
+            result = false;
+        }
+        console.log(result);
+    </script>
+
+</body>
+
+</html>
