@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // IIFE (Immediately Invoked Function Expression)
+        /* 
+        amint megírjuk a függvényt, egyből meg is hívjuk, de nem úgy mint sima deklarációnál,
+        ahol előbb megírjuk a függyvényt, majd egy invokációval meghívjuk,
+        hanem itt egyben lesz a kettő
+        */
+
+        /* 
+        function log() {
+            console.log('IIFE');
+        }
+        log();
+        */
+        // helyett, zárójelbe teszem, és a végén egy zárojellel meg is hívom
+        (function log() {
+            console.log('IIFE');
+        })();
+        // lehet anonim is.
+    </script>
+
+</body>
+
+</html>
