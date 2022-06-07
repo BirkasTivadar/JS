@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        {
+            function calculate(a, b) {
+                return a + b;
+            }
+            console.log(calculate(1, 2));
+
+            {
+                function calculate(a, b) {
+                    return a * b;
+                }
+                console.log(calculate(2, 3));
+            }
+
+            console.log(calculate(2, 3));
+        }
+        console.log(calculate(4, 5));
+
+        /*
+        Strict mód nélkül lefut, de strict módban itt nem tudom meghívni, 
+        mert blokkon kívül nem érem el a calculate függvényt, de a blokkon belüli függvény lefut.
+        Ha nem kommentelem ki a fenti függvényt, akkor alul is meg tudja hívni a calculate függvényt blokkon kívül, 
+        mert van egy nem strict módban megírt, elérhető verziója
+        */
+        'use strict';
+
+        {
+            function calculate(a, b) {
+                return a + b;
+            }
+            console.log(calculate(1, 2));
+
+            {
+                function calculate(a, b) {
+                    return a * b;
+                }
+                console.log(calculate(2, 3));
+            }
+
+            console.log(calculate(2, 3));
+        }
+
+        console.log(calculate(4, 5));
+    </script>
+
+</body>
+
+</html>
