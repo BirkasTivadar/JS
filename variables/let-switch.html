@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        let value = 1;
+        /*     
+            switch (value) {
+                case 0:
+                    let result = 'Nulla';
+                    break;
+                case 1:
+                    let result = 'Egy';
+                    break;
+                default:
+                    let result = 'Null';
+            }
+            // Mivel a switch-case egy blokknak számít, ezért nem lehet többször deklarálni a result változót
+            */
+
+        // Legjobb, ha blokkon kívül deklaráljuk a változót
+        let result;
+        switch (value) {
+            case 0:
+                result = 'Nulla';
+                break;
+            case 1:
+                result = 'Egy';
+                break;
+            default:
+                result = 'Null';
+        }
+        console.log(result);
+    </script>
+
+</body>
+
+</html>
