@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // Function definitions
+
+        console.log(getGrossPriceFD(10000, 27));
+
+        // Function declaration
+        // A function declaration esetén meg tudom hívni a függvény deklaráció előtt is, mert a hoisting a függvényt a törzsével eggyütt emeli fel
+        function getGrossPriceFD(netPrice, vatPercent) {
+            return netPrice * (1 + vatPercent / 100);
+        }
+
+        // Function expression
+
+        // console.log(getGrossPriceFE(20000, 27));
+        /*  
+         A function expression esetében nem tudom meghívni deklarálás előtt, 
+         mert a const és let kulcsszóval létrehozott változókat (mindegy, hogy primitív, vagy sem) csak az inicializálást követően tudom meghívni
+         ha var-al hoztam volna létre, akkor undefined értékkel inicializálja
+        */
+        const getGrossPriceFE = function(netPrice, vatPercent) {
+            return netPrice * (1 + vatPercent / 100);
+        }
+        console.log(getGrossPriceFE(20000, 27));
+        // A függvény ez esetben egy anonim függvény de nem muszáj annak lennie, így is jó
+        /* 
+        const getGrossPriceFE = function getGrossPriceF(netPrice, vatPercent) {
+            return netPrice * (1 + vatPercent / 100);
+        }
+         */
+    </script>
+
+</body>
+
+</html>
