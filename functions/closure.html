@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // Closure, 
+        /* 
+        Ha lefut egy függvény a gc kisöpri a memóriából a felesleges dolgokat,
+        azonban lehetőség van arra, hogy ezt a szemétgyűjtést megakadályozzuk,
+        és egy függvényben tárolt változóhoz, vagy egyébhez hozzáférjünk később is
+        */
+
+        function makeCounter() {
+            let counter = 0;
+            return function increaseCounter() {
+                counter++;
+                console.log(counter);
+            }
+        }
+
+        const increaseCounterVariable = makeCounter();
+        // itt lefuttatom a makeCounter() függyvényt, és a visszatérési értékét, ami egy függvény beteszem egy változóba
+        increaseCounterVariable();
+        increaseCounterVariable();
+        increaseCounterVariable();
+        increaseCounterVariable();
+        increaseCounterVariable();
+        /* 
+        mivel a belső függvényben hivatkozunk a counter változóra, ezért megakadályoztuk a törlését,
+        ugyanis mivel a makeCounter függyvény visszatérési értéke egy olyan függvény, ami hivatkozik a counter változóra,
+        ezért a gc nem tudja törölni a countert a makeCounter() lefutása után
+        */
+
+        console.log('------------------curly-------------------');
+        makeCounter()();
+        makeCounter()();
+        /* 
+        itt meghívom a makeCounter() függvényt, és rögtön meghívom azt a függvényt is (increaseCounter()),
+        ami a visszatérési értéke
+        */
+    </script>
+
+</body>
+
+</html>
