@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // régi megoldás
+        /* 
+        function getGrossPrice(netPrice, vatPercent, discountPercent) {
+            var netPrice = netPrice || 1000;
+            var vatPercent = vatPercent || 27;
+            var discountPercent = discountPercent || 5;
+            return netPrice * ((100 - discountPercent) / 100) * (1 + vatPercent / 100);
+        }
+        */
+        /* 
+        jelenleg már alapból megadható, akár úgy is, hogy nem mindegyikre,
+        viszont a függvényhívásnál nem tudok kihagyni paramétert 
+        (pl. hogy megadom a discountPercent-et, de a vatPercent-et nem)
+         */
+        function getGrossPrice(netPrice, vatPercent = 27, discountPercent = 5) {
+            return netPrice * ((100 - discountPercent) / 100) * (1 + vatPercent / 100);
+        }
+
+        console.log(getGrossPrice());
+        console.log(getGrossPrice(5000, 27, 10));
+        console.log(getGrossPrice(5000));
+    </script>
+
+</body>
+
+</html>
