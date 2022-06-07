@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const sampleVariable = 'value';
+
+        console.log(sampleVariable);
+
+        // sampleVariable = 'hello';
+        // const kulcsszóval létrehozott változónak nem adhatok új értéket
+
+        // DE, nem primitív változónál a belső változók értékét megváltoztathatom
+        const sampleObject = {
+            firstName: 'John',
+            lastName: 'Doe'
+        };
+
+        sampleObject.firstName = 'Jane';
+
+        console.log(sampleObject);
+
+        // Amit nem lehet, az objektumnak új értéket adni (inmutable biding)
+        /* 
+        sampleObject = {
+            firstName: 'Jack',
+            lastName: 'London',
+            age: 32
+        }
+         */
+    </script>
+
+</body>
+
+</html>
