@@ -13,6 +13,11 @@
         'use strict';
 
         const numericArray = [11, 33, 22, 55, 44];
+
+        const evenArray = numericArray.filter(item => item % 2 === 0);
+        // a filter új tömböt ad vissza, az eredetit nem módosítja
+        console.log(numericArray);
+        console.log(evenArray);
     </script>
 
 </body>
