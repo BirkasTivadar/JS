@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // flat() metódus, többdimenziós tömböket ki tudunk lapítani, vagy csökkenteni tudjuk a dimenziók számát
+
+        const matrix3D = [11, 22, 33, [44, 55, [66, 77]]];
+
+        //  első lépésként kétdimenziós tömböt készítünk a három dimenziósból
+        const matrix2D = matrix3D.flat();
+        // új tömböt ad vissza, az eredetit nem módosítja
+        console.log(matrix3D);
+        console.log(matrix2D);
+
+        //  a flat-nek paraméterben megadhatjuk, hágy dimenziót olvasszon össze
+        const matrix1D = matrix3D.flat(2);
+        console.log(matrix1D)
+
+        // ha nem tudjuk hány dimenziós a tömb, de egy dimenziósra ki szeretnénk lapítani
+        const matrix = matrix3D.flat(Infinity);
+        console.log(matrix)
+    </script>
+
+</body>
+
+</html>
