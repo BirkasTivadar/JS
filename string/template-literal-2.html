@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        'use strict';
+
+        // ezt szeretném legenerálni, és a body-ba behelyezni
+        /* 
+        <div>
+            <p>John Doe</p>
+            <p>Jane Doe</p>
+        </div>
+        */
+
+        const people = [{
+            firstname: 'John',
+            lastName: 'Doe'
+        }, {
+            firstname: 'Jane',
+            lastName: 'Doe'
+        }];
+
+        const template = `
+        <div>
+            ${people.map(person => `<p>${person.firstname} ${person.lastName}</p>`).join('')}
+        </div>
+        `;
+        // mivel a map() tömböt ad vissza, a tömb elemeit join()-al össze kell fűznöm stringgé
+        
+        console.log(template);
+
+        document.body.innerHTML = template;
+    </script>
+
+</body>
+
+</html>
