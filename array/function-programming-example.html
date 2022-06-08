@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="price-list">
+        <li>
+            AOC C24G1 Monitor
+        </li>
+        <li data-company="AMD">
+            SAPPHIRE Radeon RX 5700 XT 8GB GDDR6 256bit Videokártya
+        </li>
+        <li data-price="151.012,12">
+            GIGABYTE Geforce RTX 2060 SUPER AORUS 8GB GDDR6 256bit Videokártya
+        </li>
+        <li data-price="123.243,55">
+            LG 34UC79G-B Monitor
+        </li>
+        <li data-price="64.543,29">
+            GIGABYTE Geforce GTX 1060 WINDPRICE OC 3GB GDDR5 192bit Videokártya
+        </li>
+        <li data-price="230.323,32">
+            Acer Predator XB271HU Monitor
+        </li>
+        <li data-price="48.344,30">
+            LG 25UM58-P Monitor
+        </li>
+    </ul>
+
+    <script>
+        'use strict';
+
+        // Összeadjuk azon termékek árát, amelyek monitorok
+
+        /* 
+        // 1. leválogatom a price-list id-jű listából a data-price tulajdonságú li elemeket
+        const dataPrice = document.querySelectorAll('#price-list li[data-price]');
+        // a querySelectorAll nem egy tömböt ad vissza, hanem egy NodeList-et
+        */
+        // a NodeList-ből tömböt kell csinálnunk, erre jó az Array from metódusa;
+        const dataPrice = Array.from(document.querySelectorAll('#price-list li[data-price]'));
+        console.log(dataPrice);
+
+        // 2. leválogatom a monitorokat
+        const monitors = dataPrice.filter(item => item.textContent.includes('Monitor') || item.textContent.includes('monitor'));
+        console.log(monitors);
+
+        // 3. összeadjuk a monitorok árát, de stringként szerepel, és pont valamint vessző van benne
+        const monitorsWithCorrectPrice = monitors.map(item => parseFloat(item.dataset.price.replace('.', '').replace(',', '.')));
+        /* 
+        a dataset tartalmazza az összes attribútumot, ebből kell nekem a price, hogy átalakítsam,
+        először pont kikerül, majd vessző helyére pont, mivel ez string parse-olni kell
+        */
+
+        console.log(monitorsWithCorrectPrice);
+        // 4. összeadjuk az árakat
+        const sumOfMonitorsPrice = monitorsWithCorrectPrice.reduce((previousPrice, currentPrice) => previousPrice + currentPrice);
+        console.log(sumOfMonitorsPrice);
+
+        // Meg lehet csinálni egyben is
+        const sumOfMonitorsPriceWithOneStep =
+            Array
+            .from(document.querySelectorAll('#price-list li[data-price]'))
+            .filter(item => item.textContent.includes('Monitor') || item.textContent.includes('monitor'))
+            .map(item => parseFloat(item.dataset.price.replace('.', '').replace(',', '.')))
+            .reduce((previousPrice, currentPrice) => previousPrice + currentPrice);
+
+        console.log(sumOfMonitorsPriceWithOneStep);
+    </script>
+
+</body>
+
+</html>
