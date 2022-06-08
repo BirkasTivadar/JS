@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        /* 
+        const user = {
+            firstName: 'John',
+            lastName: 'Doe',
+            fullName() {
+                setTimeout(function() {
+                    console.log(this.firstName, this.lastName);
+                }, 3000)
+            }
+        };
+        user.fullName();
+        const user = {
+            firstName: 'John',
+            lastName: 'Doe',
+            fullName() {
+                setTimeout(function() {
+                    console.log(this.firstName, this.lastName);
+                }, 3000)
+            }
+        };
+        user.fullName();
+        */
+        /* 
+        undefined visszatérési értéket kapunk, a this itt a window-t jelenti, 
+        mert a setTimeout-on belüli függvény nem a user-en kerül meghívásra, 
+        nem a user egy metódusa
+        */
+
+        /* 
+        DE mivel az arrow-function nem bind-olja a this-t, ezért ha átírom arrowf-functionra,
+        akkor a this a szülő lesz, tehát jól fog működni
+        */
+        const user = {
+            firstName: 'John',
+            lastName: 'Doe',
+            fullName() {
+                setTimeout(() =>
+                    console.log(this.firstName, this.lastName), 3000)
+            }
+        };
+        user.fullName();
+    </script>
+
+</body>
+
+</html>
