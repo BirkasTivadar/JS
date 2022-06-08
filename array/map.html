@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        const numericArray = [11, 33, 22, 55, 44];
+
+        const exponentArray = numericArray.map(item => item ** 2);
+        // a map visszatérési értéke egy új tömb, a régit nem módosítja
+        console.log(numericArray);
+        console.log(exponentArray);
+
+        // A map második paraméterként megkaphatja az index-et
+        console.log(numericArray.map((item, index) => item * index));
+    </script>
+
+</body>
+
+</html>
