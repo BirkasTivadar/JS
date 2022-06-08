@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        const users = [{
+            firstName: 'Kiss',
+            lastName: 'József',
+            age: 18
+        }, {
+            firstName: 'Horváth',
+            lastName: 'Péter',
+            age: 34
+        }, {
+            firstName: 'Kováts',
+            lastName: 'Ilona',
+            age: 24
+        }, {
+            firstName: 'Nagy',
+            lastName: 'Antal',
+            age: 66
+        }];
+
+        // find()
+        const findResult = users.find(user => user.age > 18);
+        /*
+        az első objektumot adja vissza, ami a feltételnek megfelel, 
+        DE nem az összeset (az első találatnál megáll, és visszatér a megtalált objektumal)
+        */
+        console.log(findResult);
+
+
+        // findIndex()
+        const findIndexResult = users.findIndex(user => user.age > 18);
+        /*
+        az első objektum indexét adja vissza, ami a feltételnek megfelel, 
+        DE nem az összeset (az első találatnál megáll, és visszatér a megtalált objektum indexével)
+        */
+        console.log(findIndexResult);
+
+        // some()
+        const someResult = users.some(user => user.age > 18);
+        /* 
+        azt vizsgálja, van e a tömbben olyan elem, ami megfelel a feltételnek,
+        ha van true-val tér vissza, ha nincs false-al
+        */
+        console.log(someResult);
+
+        // every()
+        const everyResult = users.every(user => user.age > 18);
+        const everyResult2 = users.every(user => user.age > 10);
+        /* 
+        azt vizsgálja, a tömbben minden elem megfelel e a feltételnek
+        ha igen true-val tér vissza, ha nem false-al
+        */
+        console.log(everyResult);
+        console.log(everyResult2);
+    </script>
+
+</body>
+
+</html>
