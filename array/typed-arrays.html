@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // Típusos tömbök
+
+        // Int8Array() - 8 bites előjeles egész         -128...+127
+        // Uint8Array() - 8 bites előjel nélküli egész
+        // Uint8ClampedArray() - 8 bites előjel nélküli egész(a nem megfelelő értékeket módosítja a legkisebb / legnagyobb értékre)
+        // Int16Array() - 16 bites előjeles egész
+        // Uint16Array() - 16 bites előjel nélküli egész
+        // Int32Array() - 32 bites előjeles egész
+        // Uint32Array() - 32 bites előjel nélküli egész
+        // Float32Array() - 32 bites lebegőpontos
+        // Float64Array() - 64 bites lebegőpontos
+
+        // paraméterként megadhatom, hogy hány elemű legyen (ez esetben 0-kal fel is tölti a tömböt), vagy a tömb elemeit
+        const signedIntEightArray = new Int8Array(3);
+        signedIntEightArray[0] = 12
+        console.log(signedIntEightArray);
+        signedIntEightArray[1] = 127
+        console.log(signedIntEightArray);
+
+        /* 
+        ha olyan értéket adok meg, ami a tartományon kívül esik akkor túlcsordul, és előröl (-128-tól) veszi fel azt az értéket, 
+        amennyivel túlcsordult (128 esetén -128, 129 esetén -127 , stb), 
+        */
+        signedIntEightArray[1] = 130
+            // mínusz esetén ugyanez pepitában (-129 esetén 127, -130 esetén 126, stb)
+        signedIntEightArray[2] = -130
+        console.log(signedIntEightArray);
+
+
+        // Uint8ClampedArray
+        console.log('------------------Uint8ClampedArray----------------')
+        const unSignedClampedIntEightArray = new Uint8ClampedArray(3);
+        unSignedClampedIntEightArray[0] = 12
+        console.log(unSignedClampedIntEightArray);
+
+        // túl kis érték esetén a legkisebb (0) értéket veszi fel
+        unSignedClampedIntEightArray[1] = -1
+        console.log(unSignedClampedIntEightArray);
+
+        // túl nagy érték esetén a legnagyobb (255) értéket veszi fel
+        unSignedClampedIntEightArray[1] = 260
+        console.log(unSignedClampedIntEightArray);
+    </script>
+
+</body>
+
+</html>
