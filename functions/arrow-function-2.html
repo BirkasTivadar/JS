@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // egy paraméternél nem kötelező a zárójel (azonban jobb ha kitesszük), de paraméter nélkül igen
+        const arrowFunction1 = firstName => {};
+        // implicit return
+        console.log(arrowFunction1('John'));
+
+        /* 
+        mivel a függvény törzsében csak a visszatérési utasítás szerepel,
+        nem kell a kapcsos zárójel, és a return kulcsszó , 
+        DE ha kitesszük a kapcsos zárójelet kötelező a return is
+         */
+        const arrowFunction2 = (firstName) => 'Hello ' + firstName + '!';
+        // implicit return
+        console.log(arrowFunction2('John'));
+
+
+        // HA OBJEKTUMMAL SZERETNÉNK VISSZATÉRNI
+        /* 
+        const arrowFunction3 = (firstName) => {
+            name: firstName
+        };
+        */
+        /* 
+        itt undefined kapunk, mert kitettük a kapcsos zárójelet, 
+        de azok nem az objektum zárójelei, hanem a függvény blokkjáé,
+        ezért label-ként értelmezi firstname-t a kapcsos zárójelen belül, 
+        nem pedig a 'name' értékeként
+        */
+
+        // MEGOLDÁS 1. zárójelbe teszem az objektumot:
+        const arrowFunction4 = (firstName) => ({
+            name: firstName
+        });
+        console.log(arrowFunction4('John'));
+
+
+        // MEGOLDÁS 2. kapcsos zárójelbe teszem az objektumot, és kiteszem a return kulcsszót:
+        const arrowFunction5 = (firstName) => {
+            return {
+                name: firstName
+            }
+        };
+        console.log(arrowFunction5('John'));
+    </script>
+
+</body>
+
+</html>
