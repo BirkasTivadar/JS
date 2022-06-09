@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        const user = {
+            firstName: 'John',
+            lastName: 'Doe',
+            age: 30
+        }
+
+        // rest paraméterrel elérem az összes értéket, ami létezik, és meghívom
+        const tag = (texts, ...values) => console.log(texts, values);
+        /* 
+        ilyen esetben két tömböt ír ki, az egyikben vannak a sztring literálok, elemekként,
+        a másikban az objectből kiolvasott értékek
+        */
+        tag `My name is ${user.firstName} ${user.lastName}, and I'm  ${user.age}`;
+
+
+        //    ha rest operator nélkül használom, akkor csak megadott paraméterek számának megegyező object property-t kapom meg
+        const tagWithoutRest1 = (texts, value) => console.log(texts, value);
+        tagWithoutRest1 `My name is ${user.firstName} ${user.lastName}, and I'm  ${user.age} years old`;
+
+        const tagWithoutRest2 = (texts, value1, value2) => console.log(texts, value1, value2);
+        tagWithoutRest2 `My name is ${user.firstName} ${user.lastName}, and I'm  ${user.age} years old`;
+
+
+        // kirakom a weboldalra, úgy, hogy a value-k nagybetűsek és vastagok legyenek kiírva
+        const tagHTML = (texts, ...values) =>
+            texts.map((text, index) =>
+                `${text}${values[index] ? `<strong>${values[index].toString().toUpperCase()}</strong>`:''}`
+            ).join('');
+        /* 
+        itt végigiterálok a texts tömbön, ha az adott text indexnek megfelelő indexű érték létezik, 
+        (az utolsó kivételével nyilván mindig lesz, ha értékkel végződik a szöveg, akkor az utolsó is),
+        akkor nagybetűsen behelyezem strong tag-ek közé, és a végén, mert a map tömböt ad vissza, stztringgé join-olom
+        a toString() az age miatt kell
+        */
+
+        const template = tagHTML`My name is ${user.firstName} ${user.lastName}, and I'm  ${user.age} years old.`;
+        // document.body.innerHTML = template;
+        
+        /* 
+        saját, módosított verzió, mert szerintem az index vizsgálat felesleges, mivel a beágyazott értékek mentén darabolja a text-et,
+        így a texts tömb darabszáma mindig 1-el nagyobb lesz az értékek tömbjének darabszámától
+        */
+        const tagHTMLMyVersion = (texts, ...values) => 
+            texts.map((text, index) =>
+                `${text}${`<strong>${values[index].toString().toUpperCase()}</strong>`}`)
+                .join('');
+        const templateMyVersion = tagHTML`My name is ${user.firstName} ${user.lastName}, and I'm  ${user.age} years old`;
+        document.body.innerHTML = templateMyVersion;
+    </script>
+</body>
+
+</html>
