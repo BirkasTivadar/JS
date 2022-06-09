@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        const arr = ['one', 'two', 'three'];
+
+
+
+        // hozzárendelem a tömb elemeit három különböző változóhoz
+        const [a, b, c] = arr;
+        console.log(a, b, c);
+
+        /* 
+        ha tömbben több elem van, mint amennyi változóhoz értéket rendelek,
+        nem okoz problémát, ameddig tartanak a változók, addig rendeli hozzájuk a tömb aktuális elemét értékként
+        */
+        const arr2 = ['one', 'two', 'three', 'four'];
+        const [d, e, f] = arr2;
+        console.log(d, e, f);
+
+
+
+        /* 
+        ha több változóhoz szeretnék értéket rendelni, mint ahány eleme van a tömbnek,
+        a tömb elemin túl undefined értéket kapnak a változók
+        */
+        const arr3 = ['one', 'two', 'three'];
+        const [g, h, i, j, k] = arr3;
+        console.log(g, h, i, j, k);
+    </script>
+</body>
+
+</html>
