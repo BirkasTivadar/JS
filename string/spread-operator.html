@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // spread operátor
+
+        const message = 'message';
+        console.log(message)
+
+        // átalakítom tömbbé, úgy hogy minden karaktere a tömb egy eleme legyen
+        const characterArray = [...message];
+        console.log(characterArray);
+
+        const arr1 = [1, 2, 3, 4, 5];
+        const arr2 = [6, 7, 8, 9, 10];
+        // összefűzzük egy tömbbé őket, igazából elemire bontjuk mindegyik tömböt, és ezeket az elemeket helyezzük bele egy új tömbbe
+        const arr12 = [...arr1, ...arr2]
+        console.log(arr12);
+
+        // deepCopy-zom az arr1-et, nem referencia szerint másolom, hanem két független tömböm lesz ugyanazon elemekkel
+        const copyArr1 = [...arr1];
+        arr1.push(6);
+        console.log(arr1);
+        console.log(copyArr1);
+
+        // szintén deepCopy, csak objektumra
+        const user = {
+            firstName: 'John',
+            lastName: 'Doe'
+        };
+        const copyUser = {...user
+        };
+        user.firstName = 'Jane';
+        console.log(user);
+        console.log(copyUser);
+    </script>
+
+</body>
+
+</html>
