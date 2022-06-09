@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // Többsoros sztring
+
+        // régi módszer
+        const multilineOld = 'first line \n' +
+            'second line \n' +
+            'third line';
+        console.log(multilineOld);
+
+        // jelenlegi módszer, figyelni kell, hogy tördeljük, mert a behúzások a kiíráskor is megjelennek
+        const multilineNew = `first line
+                              second line
+                              third line`;
+        console.log(multilineNew);
+
+        // írunk egy függvényt, ami eltünteti a felesleges blank karaktereket a sorok elejéről
+        function translate(data) {
+            return data.split('\n').map(line => line.trimStart()).join('\n');
+        }
+        /* 
+        először szétvágom a sztringet a sortörés karakter mentén, így egy tömböt kapok amely elemei az egyes sorok,
+        ezekből map() segítségével törlöm a sor elejei blank karaktereket, majd a tömb elemeit join()-olom a sörtörés karakterrel.
+        */
+        console.log(translate(multilineNew));
+    </script>
+
+</body>
+
+</html>
