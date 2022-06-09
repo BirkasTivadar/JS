@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        let a = 'A értéke';
+        let b = 'B értéke';
+        console.log(`a értéke: ${a}, b értéke: ${b}`);
+
+        // fel akarom cserélni a két változó értékét
+        [a, b] = [b, a]
+        console.log(`a értéke: ${a}, b értéke: ${b}`);
+
+        // tipikus alkalmazása a rendezés
+        function advancedBubbleSort(arr) {
+            let swapped;
+            do {
+                swapped = false;
+                for (let i = 0; i < arr.length; i++) {
+                    if (arr[i] > arr[i + 1]) {
+                        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+                        swapped = true;
+                    }
+                }
+            } while (swapped);
+            return arr;
+        }
+
+        console.log(advancedBubbleSort([45, 34, 67, 1, 4, 2, 678, 3]));
+
+        /* 
+        nem gond ha vizsgálatnál az index kifut a tömb nagyságán túlra, 
+        mert az undefined értéket bármley számmal összehasonlítva false-t kapunk
+        */
+        const arr1 = [1, 2, 3];
+        console.log(arr1[4] < 3);
+        console.log(arr1[4] > 3);
+    </script>
+
+</body>
+
+</html>
