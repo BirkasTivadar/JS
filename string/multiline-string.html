@@ -35,6 +35,10 @@
         ezekből map() segítségével törlöm a sor elejei blank karaktereket, majd a tömb elemeit join()-olom a sörtörés karakterrel.
         */
         console.log(translate(multilineNew));
+
+        // ugyanez function expression-el és arrow functionnel
+        const translateString = data => data.split('\n').map(line => line.trimStart()).join('\n');
+        console.log(translateString(multilineNew));
     </script>
 
 </body>
