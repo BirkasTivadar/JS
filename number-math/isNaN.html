@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // eddig a globális isNan-al találkoztunk, ez most Number object isNaN metódusa
+
+        // global isNaN, a megadott paramétert megpróbálja számmá alakítani, ha sikerül false, ha nem true
+        console.log('------------Global-isNaN---------------');
+        // false
+        console.log(isNaN(true));
+        console.log(isNaN(12));
+        console.log(isNaN('12'));
+        console.log(isNaN('12.67'));
+        //true
+        console.log(isNaN('12abcd'));
+        console.log(isNaN('hello'));
+        console.log(isNaN('ab34'));
+        console.log(isNaN(NaN));
+
+        // Number object isNaN, a megadott paramétert megpróbálja számmá alakítani, ha sikerül false, ha nem true
+        console.log('------------Number-isNaN---------------');
+        // false
+        console.log(Number.isNaN(true));
+        console.log(Number.isNaN(12));
+        console.log(Number.isNaN('12'));
+        console.log(Number.isNaN('12.67'));
+        console.log(Number.isNaN('12abcd'));
+        console.log(Number.isNaN('hello'));
+        console.log(Number.isNaN('ab34'));
+        //true, csak ez esetben lesz true
+        console.log(Number.isNaN(NaN));
+
+
+
+
+        console.log('------------Global-isNaN---------------');
+    </script>
+
+</body>
+
+</html>
