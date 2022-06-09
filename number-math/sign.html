@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // Math.sing() megmondja egy számról, hogy pozitív vagy negatív
+
+        // ha pozíitív 1-el tér vissza
+        console.log(Math.sign(14));
+
+        // ha negatív -1-el tér vissza
+        console.log(Math.sign(-12));
+
+        // +0-nál és sima 0-nál 0 lesz a kimenet, -0-nál -0
+        console.log(Math.sign(+0));
+        console.log(Math.sign(0));
+        console.log(Math.sign(-0));
+
+        // ha NaN akkor NaN a visszatérési érték is
+        console.log(Math.sign(NaN));
+    </script>
+
+</body>
+
+</html>
