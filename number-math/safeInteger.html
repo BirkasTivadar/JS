@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        console.log(Number.MAX_VALUE);
+        /* 
+        előfordulhat, hogy két különböző szám ugyanúgy van letárolva, mind a 64 bit megegyezik,
+        ezért vezették be az ún. max. bizotnságos értéket, ahol nem fordulhat ez elő
+        */
+        console.log(Number.MAX_SAFE_INTEGER);
+        console.log(Number.MIN_SAFE_INTEGER);
+        // ennél nagyobb, vagy ennél kisebb számoknál előfordulhat, hogy két különböző szám ugyanúgy van letárolva a memóriában
+
+        // meg le tudjuk kérdezni, hogy egy adott szám biztonságos e vagy sem
+        console.log(Number.isSafeInteger(42));
+        console.log(Number.isSafeInteger(53452356457564867985679789563735785689642));
+    </script>
+
+</body>
+
+</html>
