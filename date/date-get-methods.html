@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        const dateNow = new Date();
+
+        // év, hónap (indexben (0-11)), nap (hét napja) lekérdezése
+        console.log(`year: ${dateNow.getFullYear()}`);
+        console.log(`month: ${dateNow.getMonth()}`);
+        console.log(`day of the week: ${dateNow.getDay()}`);
+
+        // adott hónapon belüli nap, óra, perc
+        console.log(`day of the month: ${dateNow.getDate()}`);
+        console.log(`hour: ${dateNow.getHours()}`);
+        console.log(`minute: ${dateNow.getMinutes()}`);
+        console.log(`second: ${dateNow.getSeconds()}`);
+        console.log(`millisecond: ${dateNow.getMilliseconds()}`);
+    </script>
+
+</body>
+
+</html>
