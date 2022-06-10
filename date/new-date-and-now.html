@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        const dateNow = new Date();
+        console.log(dateNow);
+
+        const date1 = new Date('October 8, 2010 11:50:10');
+        console.log(date1);
+
+        const date2 = new Date('2005-06-11T19:22:30');
+        console.log(date2);
+
+        // ha így adom meg, figyelni kell, hogy a hónapok 0-11 indexel vannak megadva (pl. 4 az a május)
+        const date3 = new Date(2005, 5, 11, 21, 20, 20);
+        console.log(date3);
+
+        // megadhatok millisecundumot is, de a kiíratásnál az nem látszik
+        const date4 = new Date(2005, 5, 11, 21, 20, 20, 555);
+        console.log(date4);
+
+        /* 
+        ha kitesszük a new kulcsszót, akkor egy Date object-et kapunk,
+        és meg tudjuk rajta hívni a objektum metódusait (pl. toJSON()).
+        */
+        console.log(dateNow.toJSON());
+
+        // ha nem new kulcsszóval hozzuk létre, akkor nem tudjuk rajta Date object metódusait meghívni, mert String-et ad vissza
+        const dateString = Date();
+        console.log(`new kulcsszóval létrehozott dateNow típusa: ${typeof dateNow}`);
+        console.log(`new kulcsszó nélkül létrehozott dateString típusa: ${typeof dateString}`);
+        console.log(dateString.toJSON());
+    </script>
+
+</body>
+
+</html>
