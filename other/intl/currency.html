@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        /* 
+        NumberFormat két paramétert vár, ISO szabvány szerint,
+        milyen milyen ynelv szerint szeretném az adott számot formázni, 
+        második egy Object style: mi szerint szertném formázni, currency: megadom a valutát 
+        */
+        const usCurrency = Intl.NumberFormat('en-us', {
+            style: 'currency',
+            currency: 'USD'
+        });
+
+        const gbCurrency = Intl.NumberFormat('en-gb', {
+            style: 'currency',
+            currency: 'GBP'
+        });
+
+        const deCurrency = Intl.NumberFormat('de-de', {
+            style: 'currency',
+            currency: 'EUR'
+        });
+
+
+        console.log(usCurrency.format(100200400.45))
+        console.log(gbCurrency.format(100200400.45))
+        console.log(deCurrency.format(100200400.45))
+    </script>
+
+</body>
+
+</html>
