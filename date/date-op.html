@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        /* 
+        pl.túl sokszor próbál vlalaki roszz jelszóval belépni,
+        x időre felfüggesztjük az adott username - el való belépést
+        */
+        /* 
+        olyan függvényt írunk, amely kap két paramétert, mennyi időre lett felfüggesztve, és mikortól,
+        majd ez alapján megmondja fel van e függesztve a fiók, boolean-t ad vissza
+        */
+        function isSuspended(suspendTimeInHours, whenSuspended) {
+            if (!whenSuspended) {
+                return false;
+            }
+            const now = new Date();
+            const ellapsedTimeInHours = (now.getTime() - whenSuspended.getTime()) / 1000 / 60 / 60; // a két idő között millisecond-ban megadott külömbséget átkonvertálom órára
+            console.log(ellapsedTimeInHours)
+            return ellapsedTimeInHours < suspendTimeInHours;
+        }
+
+        console.log(isSuspended(12));
+        console.log(isSuspended(12, new Date('2022-06-10T11:11:11')));
+        console.log(isSuspended(12, new Date('2021-06-09T06:01:10')));
+    </script>
+
+</body>
+
+</html>
