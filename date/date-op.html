@@ -26,7 +26,6 @@
             }
             const now = new Date();
             const ellapsedTimeInHours = (now.getTime() - whenSuspended.getTime()) / 1000 / 60 / 60; // a két idő között millisecond-ban megadott külömbséget átkonvertálom órára
-            console.log(ellapsedTimeInHours)
             return ellapsedTimeInHours < suspendTimeInHours;
         }
 
