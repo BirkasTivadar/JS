@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // hasonló, mint a tömb, de minden érték csak egyszer szerepelhet
+
+        const languages = new Set();
+
+        // add() metódussal adok hozzá új elemet
+        languages
+            .add('php')
+            .add('python')
+            .add('java');
+        console.log(languages.size);
+
+        // ha olyan elemet adok hozzá, ami már van benne, nem adódik hozzá újra
+        languages.add('python')
+        console.log(languages.size);
+
+        // entries()-el tudom lekérdezni az elemeket, SetIteratort ad vissza
+        console.log(languages.entries());
+
+        // values()-al tudom lekérdezni az értékeket, SetIteratort ad vissza
+        console.log(languages.values());
+
+        // has() megmondja van e addot értékű elem
+        console.log(languages.has('java'));
+        console.log(languages.has('c++'));
+    </script>
+
+</body>
+
+</html>
