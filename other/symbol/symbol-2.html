@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        /*
+        Két Symbol sosem ugyanaz, DE ha Symbol.for()-al hozok létre Symbolt, akkor, igen: 
+        létezik egy ún. Global Symbol Registry, ami tárolja az összes globálisan létrehozott Symbol-t (Symbol.for())-al,
+        és csak akkor hoz létre új Symbol-t ha még nem létezik GSL-ben, ha már létezik, akkor az új az előzőt kapja meg, nem jön létre új.
+        */
+        const id = Symbol.for('id');
+        console.log(id.description);
+        const anotherId = Symbol.for('id');
+        console.log(id === anotherId);
+
+        const nameSymbol = Symbol.for('name');
+        console.log(Symbol.keyFor(nameSymbol));
+        console.log(nameSymbol.description);
+    </script>
+
+</body>
+
+</html>
