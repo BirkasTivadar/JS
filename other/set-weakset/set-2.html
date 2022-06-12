@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        const languages = new Set();
+
+        languages
+            .add('php')
+            .add('python')
+            .add('java');
+
+        // delete()-vel tudok törölni
+        languages.delete('php');
+        console.log(languages.size);
+
+        // clear()-el tudom az összes elemet törölni
+        languages.clear();
+        console.log(languages.size);
+
+        languages
+            .add('php')
+            .add('python')
+            .add('java');
+
+        console.log(languages.values());
+
+        const values = languages.values();
+        // Mivel SetIterator-t ad vissza, van next() metódusa;
+
+        // a next két adatot ad vissza (Object-ben), az aktuális értéket, és az ún. done ami egy boolean, azt jelni, hogy végeztünk e vagy sem (ha végge a tartalomnak, akkor lesz true)
+        console.log(values.next());
+        // ha csak az értéket akarom visszakapni, (de ekkor is lép egyet előre):
+        console.log(values.next().value);
+        console.log(values.next());
+        console.log(values.next());
+        console.log(values.next());
+    </script>
+
+</body>
+
+</html>
