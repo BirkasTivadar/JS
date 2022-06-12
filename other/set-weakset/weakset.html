@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // WeakSet, a tárolt érték csak és kizárólag Object lehet, gyenge referenciaként tárolja a WeakSet
+        let language = {
+            name: 'Java'
+        }
+
+        const weakLanguages = new WeakSet();
+        weakLanguages.add(language);
+        console.log(weakLanguages.has(language));
+        // ha módosítom az Object értékét, akkor WeakSet-ből is a módosított objektumot érem el.
+        language = null;
+        console.log(weakLanguages.has(language));
+        // csak add(), set(), delete() és has() metódusai vannak
+    </script>
+
+</body>
+
+</html>
