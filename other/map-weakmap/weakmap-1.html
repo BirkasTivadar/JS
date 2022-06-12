@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        let key1 = {
+            name: 'John Doe'
+        }
+
+        let key2 = {
+            name: 'Jane Doe'
+        }
+        const sampleMap = new Map();
+        const sampleWeakMap = new WeakMap();
+
+        sampleMap.set(key1, 'dead');
+        // WeakMap esetén a key csak és kizárólag Object lehet   
+        // sampleWeakMap.set('foo', 'dead');
+        sampleWeakMap.set(key2, 'dead2');
+
+        console.log(sampleMap.get(key1));
+        console.log(sampleWeakMap.get(key2));
+
+        // a WeakMap csak gyenge referenciaként tárolja a kulcsként használt Object-et
+
+        // sima Map-nél hiába állítom az Object típusú key-t nmás értékre pl. null-ra, forEach()-el továbbra is elérem az eredeti Object-et
+        key1 = null;
+        sampleMap.forEach((value, key) => console.log(key));
+
+        // WeakMap-nél azonban nem, nincs is forEach() metódusa, csak get(), set(), has(), delete()
+        key2 = null;
+        console.log(sampleWeakMap.get(key2));
+    </script>
+
+</body>
+
+</html>
