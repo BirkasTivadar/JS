@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        const keys = ['key1', 'key2', 'key3'];
+        const values = ['value1', 'value2', 'value3'];
+        /* 
+        olyan objectet hozunk létre, amelynek property-jei a keys tömb elemei,
+        a property-k értékei pedig a values tömb elemei
+        */
+        const myObj = {
+            [keys.shift()]: values.shift(),
+            [keys.shift()]: values.shift(),
+            [keys.shift()]: values.shift()
+        };
+        console.log(myObj);
+        // a shift() metódus egyet léptet jobbra a tömbben
+    </script>
+
+</body>
+
+</html>
