@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // limitek régen: rfc2109, total: 300, 20/domain, max. 4k méret
+
+        // username a cooki neve, John Doe az érték
+        // expires, itt állítom be az érvényességi idejét 
+        // path, milyen útvonalon/útvonalaokon legyen elérhető (amit itt magadtam az default, akér el is hagyhatnánk)
+        document.cookie = 'username=John Doe; expires=Fri, 17 Jun 2022 12:00:00 UTC; path=/';
+
+        /* 
+        ha egy cookie-t törölni akarok, legjobb, ha ez értékét üresre állítom,
+        az expires-t pedig a timestamp kezdetére (Thu, 01 Jan 1970 00:00:00 UTC)
+          */
+        document.cookie = 'username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+    </script>
+
+</body>
+
+</html>
