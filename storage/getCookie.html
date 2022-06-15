@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        /* 
+        Egy Objectet hozunk létre négy metódussal:
+            1. létrehoz egy cookie - t
+            2. lekérdez egy cookie - t
+            3. leellenőrizz egy cookie - t, hogy létezik e
+            4. töröl egy cookie - t
+        */
+
+        // 2. getCookie()
+        const cookieHandler = {
+            setCookie(name, value, expirationDays = 365, path = "/") {
+                const now = new Date();
+                now.setTime(now.getTime() + expirationDays * 24 * 60 * 60 * 1000); // az expirationdays napokban van megadva, ezt át kell alakítanom milliszekundummá
+                const expires = now.toUTCString();
+                document.cookie = `${name} = ${value}; expires=${expires}; path=${path}`;
+            },
+            /* 
+            mivel a cookie-kat az alábbi formában sztringként tárolja a böngésző (document.cookie):
+            username=Gáll Gergely; job=mentor
+            ezért szét kell bontanom
+            */
+            getCookie(name) {
+                const keyValuePairs = document.cookie
+                    .split('; ')
+                    .find(cookie => cookie.startsWith(`${name}=`));
+                return keyValuePairs ? keyValuePairs.split('=')[1] : '';
+            },
+            checkCookie(name) {
+
+            },
+            deleteCookie(name) {
+
+            }
+        }
+
+        cookieHandler.setCookie('username', 'Gáll Gergely');
+        cookieHandler.setCookie('job', 'mentor');
+        console.log(document.cookie); // hogy lássuk miként tárolja a böngésző a cookie-kat
+        console.log(cookieHandler.getCookie('job'));
+        console.log(cookieHandler.getCookie('gob'));
+    </script>
+
+</body>
+
+</html>

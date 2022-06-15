@@ -20,6 +20,7 @@
             4. töröl egy cookie - t
         */
 
+        // 2. getCookie()
         const cookieHandler = {
             setCookie(name, value, expirationDays = 365, path = "/") {
                 const now = new Date();
@@ -27,8 +28,16 @@
                 const expires = now.toUTCString();
                 document.cookie = `${name} = ${value}; expires=${expires}; path=${path}`;
             },
+            /* 
+            mivel a cookie-kat az alábbi formában sztringként tárolja a böngésző (document.cookie):
+            username=Gáll Gergely; job=mentor
+            ezért szét kell bontanom
+            */
             getCookie(name) {
-
+                const keyValuePairs = document.cookie
+                    .split('; ')
+                    .find(cookie => cookie.startsWith(`${name}=`));
+                return keyValuePairs ? keyValuePairs.split('=')[1] : '';
             },
             checkCookie(name) {
 
@@ -39,6 +48,10 @@
         }
 
         cookieHandler.setCookie('username', 'Gáll Gergely');
+        cookieHandler.setCookie('job', 'mentor');
+        console.log(document.cookie); // hogy lássuk miként tárolja a böngésző a cookie-kat
+        console.log(cookieHandler.getCookie('job'));
+        console.log(cookieHandler.getCookie('gob'));
     </script>
 
 </body>
