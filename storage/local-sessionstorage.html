@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // méretük 5 vagy 10 mega lehet
+        // kulcs érték párokat tárolnak, semmi mást
+        // nagy méretű vagy nem túl érzékeny adatokat tárolunk bennük
+        // a session a böngésző bezárásáig tárolja az adatokat, a local amíg mi vagy a user ki nem törli
+        // sztringként tárolják az adatokat
+
+        // setItem(key, value) metódussal hozzuk létre
+        localStorage.setItem('username', 'John Doe');
+        sessionStorage.setItem('username', 'Jane Doe');
+
+        // tárolhatunk benne Objectet, de az is sztringként tárolja
+        localStorage.setItem('usernameObj', {
+            name: 'Jack Doe'
+        });
+        // ezért, ha Object-et tárolunk, használjuk a JSON.stringify() metódust
+        sessionStorage.setItem('usernameObj', JSON.stringify({
+            name: 'John Doe'
+        }));
+
+        // getItem(key) metódussal tudomk lekérni
+        console.log(localStorage.getItem('username'));
+        console.log(localStorage.getItem('usernameObj'));
+        console.log(sessionStorage.getItem('username'));
+        console.log(sessionStorage.getItem('usernameObj'));
+        console.log(typeof sessionStorage.getItem('username'));
+        console.log(typeof sessionStorage.getItem('usernameObj'));
+        console.log(JSON.parse(sessionStorage.getItem('usernameObj')));
+        console.log('');
+
+        console.log('-----------------key(index)---------------------');
+        // key(index) metódussal az adott indexű elem kulcsát tudom lekérdezni
+        console.log(localStorage.key(0));
+        console.log(localStorage.key(1));
+        console.log('');
+
+        // removeItem(key) metódussal tudom törölni az elemet
+        console.log('-----------------removeItem(index)---------------------');
+        localStorage.removeItem('username');
+
+        // clear() metódus az összes elemet törli
+        sessionStorage.clear();
+    </script>
+
+</body>
+
+</html>

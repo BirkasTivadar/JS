@@ -20,7 +20,7 @@
             4. töröl egy cookie - t
         */
 
-        // 2. getCookie()
+        // 3-4. checkCookie() és deleteCookie()
         const cookieHandler = {
             setCookie(name, value, expirationDays = 365, path = "/") {
                 const now = new Date();
@@ -39,11 +39,16 @@
                     .find(cookie => cookie.startsWith(`${name}=`));
                 return keyValuePairs ? keyValuePairs.split('=')[1] : '';
             },
-            checkCookie(name) {
 
+            // meghívom a getCookie()-t ha üreset ad vissza false-al térek vissza, ha nem, akkor true-val
+            checkCookie(name) {
+                return this.getCookie(name) ? true : false;
             },
             deleteCookie(name) {
-
+                // if (this.checkCookie(name)) {
+                document.cookie = `${name}=; expires=Thu 01 Jan 1970 00:00:00 UTC; path=/`;
+                // }
+                // felesleges a cookie létezés ellenőrzés, nem okoz hibát, ha nem létezőt akarunk törölni
             }
         }
 
@@ -52,6 +57,12 @@
         console.log(document.cookie); // hogy lássuk miként tárolja a böngésző a cookie-kat
         console.log(cookieHandler.getCookie('job'));
         console.log(cookieHandler.getCookie('gob'));
+        console.log(cookieHandler.checkCookie('job'));
+        console.log(cookieHandler.checkCookie('gob'));
+        console.log(cookieHandler.deleteCookie('job'));
+        console.log(cookieHandler.deleteCookie('gob'));
+        console.log(cookieHandler.checkCookie('job'));
+        console.log(cookieHandler.checkCookie('gob'));
     </script>
 
 </body>
