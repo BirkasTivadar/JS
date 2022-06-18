@@ -12,9 +12,25 @@ console.log(subtractValues(20, 10));
  */
 
 // 2. módszer
+/* 
 import { user, username, numArr, sum, subtract } from './module.js';
 console.log(user);
 console.log(username);
 console.log(numArr);
 console.log(sum(10, 15));
 console.log(subtract(20, 10));
+*/
+
+// Importálni is tudok más néven
+import {
+    user,
+    username,
+    numArr,
+    sumValues as sum,
+    subtractValues as sub
+} from './module.js';
+console.log(user);
+console.log(username);
+console.log(numArr);
+console.log(sum(10, 15));
+console.log(sub(20, 10));
