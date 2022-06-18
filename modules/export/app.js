@@ -1,6 +1,6 @@
 'use strict';
 
-import { user, username, numArr, sumValues, subtractValues, } from './module.js';
+import { user, username, numArr, sumValues, subtractValues } from './module.js';
 
 console.log(user);
 console.log(username);
