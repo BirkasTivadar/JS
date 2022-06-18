@@ -22,6 +22,7 @@ console.log(subtract(20, 10));
 */
 
 // Importálni is tudok más néven
+/* 
 import {
     user,
     username,
@@ -34,3 +35,17 @@ console.log(username);
 console.log(numArr);
 console.log(sum(10, 15));
 console.log(sub(20, 10));
+*/
+
+/* 
+3. módszer Az összes modul importálása más néven:
+ekkor egy Object-ként importálok mindent a module.js-ből, ami ott ki van jelölve export-ra, 
+és ezért az Object-nek egy nevet kell adjak (itt MyMath), 
+és a fájlon belül ezen Object-en keresztül tudom elérni
+ */
+import * as MyMath from './module.js';
+console.log(MyMath.user);
+console.log(MyMath.username);
+console.log(MyMath.numArr);
+console.log(MyMath.sumValues(10, 15));
+console.log(MyMath.subtractValues(20, 10));
