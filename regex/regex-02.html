@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // kapcsolók: i, g, m
+
+        // i ignorecase (nem lesz kis-/nagybetű érzékeny),
+        // g global, akkor használjuk, ha nem akarunk az első találatnál megállni
+        // m multiline, több soros szövegben is tudunk keresni
+        const pattern = /AB/igm;
+        const textGood = 'békABrakadabra';
+        const textBad = 'békabra\nkadabra';
+        console.log('--------------------pattern.exec(textGood)------------------');
+        console.log(pattern.exec(textGood));
+        console.log('--------------------textBad.match(pattern)------------------');
+        console.log(textBad.match(pattern));
+    </script>
+
+</body>
+
+</html>
