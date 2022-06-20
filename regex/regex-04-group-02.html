@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // azt akarom vizsgálni szerepel e a szövegben angol kisbetű
+        const pattern = /[a-z]/
+        const textGood = '2. balfék';
+        const textBad = '123-456';
+        console.log('--------------------textGood.match(pattern)------------------');
+        console.log(textGood.match(pattern));
+        console.log('--------------------textBad.match(pattern)------------------');
+        console.log(textBad.match(pattern));
+
+        // ha azt akarom, hogy csak angol kis és nagybetű valamint szám szereplehessen benne
+        const pattern2 = /^[a-zA-Z0-9]+$/
+        const textGood2 = 'Abrakadabra21';
+        const textBad2 = 'balfék';
+        console.log('--------------------textGood2.match(pattern2)------------------');
+        console.log(textGood2.match(pattern2));
+        console.log('--------------------textBad2.match(pattern2)------------------');
+        console.log(textBad2.match(pattern2));
+
+        // ha magyar betűkkel is szeretném, manuálisan kell kiegészíteni
+        const patternHun = /^[a-záéíóöőúüűA-ZÁÉÍÓÖÚÜŰ0-9]+$/
+        const textGoodHun = 'Árvítűrőtükörfúrógép21';
+        const textBadHun = 'Abrak a dabra';
+        console.log('--------------------textGoodHun.match(patternHun)------------------');
+        console.log(textGoodHun.match(patternHun));
+        console.log('--------------------textBadHun.match(patternHun)------------------');
+        console.log(textBadHun.match(patternHun));
+
+        const pattern3 = /^[a-zA-Z0-9_]+$/
+            // ez egyenértékű ezzel:
+        const pattern4 = /^\w+$/
+        const textGood4 = 'Abrak_a_dabra';
+        const textBad4 = 'balfék';
+        console.log('--------------------textGood4.match(pattern4)------------------');
+        console.log(textGood4.match(pattern4));
+        console.log('--------------------textBad4.match(pattern4)------------------');
+        console.log(textBad4.match(pattern4));
+        // tagadása nagy W -val, egyet sem tartalmazhat az angol abc batűiből, számokból, és aláhúzás karakterből
+        const pattern5 = /^\W+$/
+        const textGood5 = 'áéőú íöüű';
+        const textBad5 = 'Abrak_a_dabra';
+        console.log('--------------------textGood5.match(pattern5)------------------');
+        console.log(textGood5.match(pattern5));
+        console.log('--------------------textBad5.match(pattern5)------------------');
+        console.log(textBad5.match(pattern5));
+
+        // a 0-9 rövidítése \d
+        const pattern6 = /^\d+$/
+        const textGood6 = '123456789';
+        const textBad6 = 'Abrakadabra21';
+        console.log('--------------------textGood6.match(pattern6)------------------');
+        console.log(textGood6.match(pattern6));
+        console.log('--------------------textBad6.match(pattern6)------------------');
+        console.log(textBad6.match(pattern6));
+        // tagadása a \D
+        const pattern7 = /^\D+$/
+        const textGood7 = 'abrakadabra';
+        const textBad7 = 'Abrakadabra21';
+        console.log('--------------------textGood7.match(pattern7)------------------');
+        console.log(textGood7.match(pattern7));
+        console.log('--------------------textBad7.match(pattern7)------------------');
+        console.log(textBad7.match(pattern7));
+    </script>
+
+
+</body>
+
+</html>
