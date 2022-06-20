@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // * -al jelzem, hogy az előtte lévő karakter nullaszor, vagy többször szerepeljen
+
+        const pattern = /bo.*ka/;
+        const textGood = 'boróka';
+        const textGood2 = 'boka';
+        const textBad = 'hello';
+        console.log('--------------------textGood.match(pattern)------------------');
+        console.log(textGood.match(pattern));
+        console.log('--------------------textGood2.match(pattern)------------------');
+        console.log(textGood2.match(pattern));
+        console.log('--------------------textBad.match(pattern)------------------');
+        console.log(textBad.match(pattern));
+    </script>
+
+</body>
+
+</html>
