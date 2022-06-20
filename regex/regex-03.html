@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        /* 
+        ^ -el jelezzük a minta előtt, hogy a mintával kell kezdődnie a szövegnek, 
+        g kapcsoló nem befolyásolja
+        */
+        const pattern = /^ab/;
+        const textGood = 'abrakadabra';
+        const textBad = 'békabra\nkadabra';
+        console.log('--------------------pattern.exec(textGood)------------------');
+        console.log(pattern.exec(textGood));
+        console.log('--------------------textBad.match(pattern)------------------');
+        console.log(textBad.match(pattern));
+
+
+        /* 
+        $ -al jelezzük a minta végén, hogy a mintával kellvégződnie a szövegnek, 
+        g kapcsoló nem befolyásolja
+        */
+        const pattern2 = /ab$/;
+        const textGood2 = 'abrakadab';
+        const textBad2 = 'békabra\nkadabra';
+        console.log('--------------------pattern2.exec(textGood2)------------------');
+        console.log(pattern2.exec(textGood2));
+        console.log('--------------------textBad2.match(pattern2)------------------');
+        console.log(textBad2.match(pattern));
+    </script>
+
+</body>
+
+</html>
