@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // számosság megadása [min,max]
+        // tagadás [^char] nem az adott karakter
+
+        // az előtte lévő karakter itt 'a', min 2-szer, max. 5-ször szerepljen
+        const pattern = /ba{2,5}[^a]/;
+        const textGood = 'Hannibaal';
+        const textBad = 'Hannibaaaaaal';
+        console.log('--------------------textGood.match(pattern)------------------');
+        console.log(textGood.match(pattern));
+        console.log('--------------------textBad.match(pattern)------------------');
+        console.log(textBad.match(pattern));
+    </script>
+
+</body>
+
+</html>
