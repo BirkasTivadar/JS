@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // két módon lehet létrehozni
+
+        // 1. new RegExp() és paraméterként átadjuk neki a patternt
+        const patternWithRegexp = new RegExp();
+
+        // 2. két / / jel és közte a minta
+        const pattern = /ab/;
+        const text = 'békabrakadabra';
+        const name = 'John';
+
+        /* 
+        exec() metódussal tudom vizsgálni,
+        hogy a paraméterként átadott szöveg tartalmazza e a mintát,
+        ha igen a legelső előfordulás indexét is visszadja
+        */
+        console.log('--------------------pattern.exec(text)------------------');
+        console.log(pattern.exec(text));
+        console.log(pattern.exec(name));
+
+        /* 
+        úgy is meg tudom vizsgálni, 
+        hogy a vizsgálandó sztring-nek hívom emg a match() metódusát,
+        és annak paraméterként átadom a pattern-t
+        */
+        console.log('--------------------text.match(pattern)------------------');
+        console.log(text.match(pattern));
+        console.log(name.match(pattern));
+    </script>
+
+</body>
+
+</html>
