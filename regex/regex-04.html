@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // Csoportosítás
+
+        // ha arra vagyok kíváncsi, hogy egy karakterhalmaz bármely karakterét tartalmazza e a szöveg
+        const pattern = /[abc]/;
+        const patternGlobal = /[abc]/g;
+        const textGood = 'abrakadab';
+        const textBad = 'elmehetek';
+        console.log('--------------------pattern.exec(textGood)------------------');
+        console.log(pattern.exec(textGood));
+        console.log('----------textGood.match(pattern)--g-kapcsolóval------------');
+        console.log(textGood.match(patternGlobal));
+        console.log('--------------------textBad.match(pattern)------------------');
+        console.log(textBad.match(pattern));
+
+
+        // tudom kombinálni a ^-val vagy a $-al
+        const patternStart = /^[abc]/;
+        const patternEnd = /[abc]$/;
+        console.log('--------------------textGood.match(patternStart)------------------');
+        console.log(textGood.match(patternStart));
+        console.log('--------------------textGood.match(patternEnd)------------------');
+        console.log(textGood.match(patternEnd));
+        console.log('--------------------textBad.match(patternStart)------------------');
+        console.log(textBad.match(patternStart));
+        console.log('--------------------textBad.match(patternEnd)------------------');
+        console.log(textBad.match(patternEnd));
+
+        // ha karaktersorozatok halmazára szeretnék vizsgálni
+        const patternsStart = /^(ab|bc)/;
+        console.log('--------------------textGood.match(patternsStart)------------------');
+        console.log(textGood.match(patternsStart));
+        console.log('--------------------textBad.match(patternsStart)------------------');
+        console.log(textBad.match(patternsStart));
+
+        // mix 
+        const patternsStartEnd = /^(ab|bc)$/;
+        // iylen esetben csak akkor kapok jó eredémnyt, ha ab és bc karaktersorozatokvalameyikéből áll a sztring
+        console.log('--------------------/^(ab|bc)$/------------------');
+        console.log('ab'.match(patternsStartEnd));
+        console.log('bc'.match(patternsStartEnd));
+        console.log('abc'.match(patternsStartEnd));
+    </script>
+
+
+</body>
+
+</html>

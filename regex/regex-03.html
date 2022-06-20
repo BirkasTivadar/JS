@@ -16,26 +16,23 @@
         ^ -el jelezzük a minta előtt, hogy a mintával kell kezdődnie a szövegnek, 
         g kapcsoló nem befolyásolja
         */
-        const pattern = /^ab/;
-        const textGood = 'abrakadabra';
+        const patternStart = /^ab/;
+        const textGood = 'abrakadab';
         const textBad = 'békabra\nkadabra';
-        console.log('--------------------pattern.exec(textGood)------------------');
-        console.log(pattern.exec(textGood));
-        console.log('--------------------textBad.match(pattern)------------------');
-        console.log(textBad.match(pattern));
-
+        console.log('--------------------textGood.match(patternStart)------------------');
+        console.log(textGood.match(patternStart));
+        console.log('--------------------textBad.match(patternStart)------------------');
+        console.log(textBad.match(patternStart));
 
         /* 
         $ -al jelezzük a minta végén, hogy a mintával kellvégződnie a szövegnek, 
         g kapcsoló nem befolyásolja
         */
-        const pattern2 = /ab$/;
-        const textGood2 = 'abrakadab';
-        const textBad2 = 'békabra\nkadabra';
-        console.log('--------------------pattern2.exec(textGood2)------------------');
-        console.log(pattern2.exec(textGood2));
-        console.log('--------------------textBad2.match(pattern2)------------------');
-        console.log(textBad2.match(pattern));
+        const patternEnd = /ab$/;
+        console.log('--------------------textGood.match(patternEnd)------------------');
+        console.log(textGood.match(patternEnd));
+        console.log('--------------------textBad.match(patternEnd)------------------');
+        console.log(textBad.match(patternEnd));
     </script>
 
 </body>

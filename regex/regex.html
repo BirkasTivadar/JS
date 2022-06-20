@@ -11,6 +11,14 @@
 <body>
     <script>
         'use strict';
+
+        const pattern = /ab/;
+        const textGood = 'abrakadabra';
+        const textBad = 'békabra\nkadabra';
+        console.log('--------------------pattern.exec(textGood)------------------');
+        console.log(pattern.exec(textGood));
+        console.log('--------------------textBad.match(pattern)------------------');
+        console.log(textBad.match(pattern));
     </script>
 
 </body>
