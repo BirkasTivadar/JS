@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // példa a try-catch használatára
+
+        const jsondata = `
+        {
+            "firstName": "John",
+            "lastName": "Doe",
+            "age": 30,
+        }
+        `;
+
+        try {
+            const user = JSON.parse(jsondata);
+            console.log(user);
+        } catch (error) {
+            console.error(error);
+        }
+        // hibát jelez, mert az object végén maradt egy nem odaillő vessző
+        console.log('RUN');
+
+
+        // a catch ágban nem csak a hibát tudom kíiratni, hanem akár adhatok a user-nek egy default értéket
+        let user = null;
+        try {
+            user = JSON.parse(jsondata);
+        } catch (error) {
+            console.error(error);
+            user = {
+                firstName: 'Jane',
+                lastName: 'Doe',
+                age: 20
+            };
+        }
+        console.log(user);
+    </script>
+
+</body>
+
+</html>
