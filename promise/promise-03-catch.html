@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        const samplePromise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                // if (false) {
+                if (true) {
+                    resolve('Promise is fullfilled')
+                } else {
+                    reject(new Error('Promise error'))
+                }
+            }, 3000)
+        });
+
+        // bármennyi then és catch águnk lehet
+        samplePromise
+            .then((data) => console.log(data))
+            .then((data) => console.log('Sikeres volt'))
+            .catch((error) => console.error(error));
+    </script>
+
+</body>
+
+</html>
