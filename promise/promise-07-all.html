@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        const cat = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve({
+                    sound: 'miau',
+                    loyal: false
+                })
+            }, 3000);
+        });
+
+        const dog = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve({
+                    sound: 'vau',
+                    loyal: true
+                })
+            }, 6000);
+        });
+
+        /* 
+        azt akarom, ha mindkét promise fullfilled lett, akkor és csak akkor 
+        írja ki mindkét object-et a console-ra (erre jó az all() metódus)
+        egy tömbben afdjuk át neki paraméterként, hogy mely promise-okra vonatkozik
+        */
+
+        Promise
+            .all([cat, dog])
+            .then((results) => {
+                const [cat, dog] = results;
+                console.log(cat, dog);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        // ha hiba történik, attól függetlenül a catch ágra fut, hogy nem lett a promise-okban megírva a reject
+    </script>
+
+</body>
+
+</html>
