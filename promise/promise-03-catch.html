@@ -23,10 +23,17 @@
             }, 3000)
         });
 
-        // bármennyi then és catch águnk lehet
+        /* 
+        bármennyi then és catch águnk lehet, 
+        ez esetben viszont az előző ágban vissza kell térni a data-val vagy error-al, 
+        ha a következő ágban is használni akarom (akárhány ágban visszatérhetek vele) 
+        */
         samplePromise
+            .then((data) => {
+                console.log('Sikeres volt: ');
+                return data
+            })
             .then((data) => console.log(data))
-            .then((data) => console.log('Sikeres volt'))
             .catch((error) => console.error(error));
     </script>
 
