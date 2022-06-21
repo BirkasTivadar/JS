@@ -11,7 +11,7 @@
 <body>
     <script>
         'use strict';
-        const jsondata2 = `
+        const jsondata = `
         {
             "firstName": "John",
             "lastName": "",
@@ -21,7 +21,7 @@
 
         // a finally ág minden esetben lefut, ha történt hiba, ha nem
         try {
-            const user = JSON.parse(jsondata2);
+            const user = JSON.parse(jsondata);
             if (!user.firstName || !user.lastName || !user.age) {
                 throw new ReferenceError('Missing property');
             }

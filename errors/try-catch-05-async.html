@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        const jsondata = `
+        {
+            "firstName": "John",
+            "lastName": "Doe",
+            "age": 20,
+        }
+        `;
+
+        const parse = (data) => JSON.parse(data);
+        // ez nem jó, nem a megadott szöveget fogja kiírni:
+        /* 
+        try {
+            setTimeout(() => {
+                const user = parse(jsondata);
+                console.log(user);
+            })
+        } catch (error) {
+            console.error(`My catch block: ${error}`);
+        }
+        */
+
+        /* 
+        aszinkron függvénynél, ha el akarom kapni a hibát az aszinkron kódban,
+        akko a try-catch blokkot, callback függvényen belül kell elhelyeznem
+        */
+        setTimeout(() => {
+            try {
+                const user = parse(jsondata);
+                console.log(user);
+            } catch (error) {
+                console.error(`My catch block: ${error}`);
+            }
+        });
+    </script>
+
+</body>
+
+</html>
