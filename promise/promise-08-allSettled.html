@@ -21,23 +21,16 @@
             }, 3000);
         });
 
-        const dog = new Promise((resolve) => {
-            setTimeout(() => {
-                resolve({
-                    sound: 'vau',
-                    loyal: true
-                })
-            }, 6000);
+        const dog = new Promise((resolve, reject) => {
+            reject('Promise error')
         });
 
         /* 
-        azt akarom, ha mindkét promise fullfilled lett, akkor és csak akkor 
-        írja ki mindkét object-et a console-ra (erre jó az all() metódus)
-        egy tömbben afdjuk át neki paraméterként, hogy mely promise-okra vonatkozik
+        allSettled() akkor is a then ágra fut, ha mindegyik promise lefutott, 
+        függetlenül attól, hogy sikeresen, vagy sikertelenül
         */
-
         Promise
-            .all([cat, dog])
+            .allSettled([cat, dog])
             .then((results) => {
                 const [cat, dog] = results;
                 console.log(cat, dog);
@@ -45,9 +38,6 @@
             .catch((error) => {
                 console.error(error);
             });
-        // ha hiba történik, attól függetlenül a catch ágra fut, hogy nem lett a promise-okban megírva a reject
-
-        // HA BÁRMELYIK PROMISE-BAN HIBA TÖRTÉNIK ATTÓL FÜGGETLENÜL A TÖBBI PROMISE LEFUT ÖNMAGÁBAN
     </script>
 
 </body>
