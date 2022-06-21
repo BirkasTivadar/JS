@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // hibakezelés azért kell, mert ha hiba következik be, alapból leáll a program
+        /*  
+         console.log(bubu);
+         console.log('start');
+         */
+
+        // try-catch esetén nem áll le a program futása
+        console.log('----------------------error-----------------');
+        try {
+            console.log(bubu);
+        } catch (error) {
+            console.error(error);
+        }
+        console.log('start');
+
+        // két fontos property-je van az error-nak a message és a name
+        console.log('-------error-message-name-stack--------------');
+        try {
+            console.log(bubu);
+        } catch (error) {
+            console.error(error.message);
+            console.error(error.name);
+            console.error(error.stack);
+        }
+        console.log('start');
+        // a stack nem a szabvány része, de a legtöbb böngészőbe implementálva van, mert nagyon hasznos
+    </script>
+
+</body>
+
+</html>
