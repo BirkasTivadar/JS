@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // különböző hibák lekezelésének módja
+
+        const jsondata1 = `
+        {
+            "firstName": "John",
+            "lastName": "Doe",
+            "age": 30,
+        }
+        `;
+
+        // JS-ben nincs multiple catch, if ágakkal tudjuk megoldani
+        try {
+            const user = JSON.parse(jsondata1);
+        } catch (error) {
+            // mindig a leggyakoribb hiba legyen legelöl
+            if (error instanceof ReferenceError) {
+                console.error('Referencia hiba');
+            } else if (error instanceof SyntaxError) {
+                console.error('Szintaktikai hiba');
+            } else {
+                console.error(error.message);
+            }
+        }
+
+        // saját error message generálása
+        const jsondata2 = `
+        {
+            "firstName": "John",
+            "lastName": "",
+            "age": 20
+        }
+        `;
+        try {
+            const user = JSON.parse(jsondata2);
+            if (!user.firstName || !user.lastName || !user.age) {
+                throw new ReferenceError('Missing property');
+            }
+        } catch (error) {
+            if (error instanceof ReferenceError) {
+                console.error(`Custom Error: ${error.message}`);
+            } else if (error instanceof SyntaxError) {
+                console.error('Szintaktikai hiba');
+            } else {
+                console.error(error.message);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
