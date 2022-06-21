@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // a promise egy olyn speciális objektum, ami egy aszinkron művelet állapotát hordozza
+        // a promise mindig kap egyetlen egy paramétert egy ún. executor egy függvény
+        const samplePromise = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve('Promise is fullfilled')
+            }, 3000)
+        });
+
+        /* 
+        a then() két paramétert vár (két callback füügvény), egyet ami sikeres futás esetén hívódik meg, 
+        és egyet, ami sikertelen futás esetén, itt most csak a sikeres esettel foglalkozunk
+        */
+        samplePromise.then((data) => console.log(data));
+    </script>
+
+</body>
+
+</html>
