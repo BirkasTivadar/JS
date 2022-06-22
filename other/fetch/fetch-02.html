@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // így tudunk fetch-hez plusz htttp header-eket megadni
+
+        //a Headers-nek Object-et vagy tömböt tudunk paraméterként megadni
+        const fetchHeadersObject = new Headers({
+            'Content-Type': 'application/json'
+                // key-value párként megadhatunk bármilyen az htttp protocol által megadott http header információt megadhatunk
+        });
+
+        // tömb paraméter esetén kétdimnezniós tömbben adjuk meg az információt és az értéket
+        /* 
+        const fetchHeadersArray = new Headers([
+            ['Content-Type', 'application/json']
+        ]);
+        */
+
+        // itt megadhatok plusz options-ként bármit, amit a fetch elfogad
+        const fetchOptions = {
+            method: 'GET', // ez a default
+            headers: fetchHeadersObject, // nem lenne muszáj külön változóba kiszervezni, de akkor Objecten belül lenne a plusz object
+            mode: 'cors',
+            cache: 'no-cache'
+        }
+
+        const result = fetch('./data.json', fetchOptions);
+
+        result
+            .then(data => data.json())
+            .then(data => console.log(data.users));
+    </script>
+
+</body>
+
+</html>
