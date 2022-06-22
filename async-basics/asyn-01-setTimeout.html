@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        console.log('start');
+
+        setTimeout(() => console.log(0), 0); // itt hiába adunk meg nulla millisecundumot, az end után fog lefutni
+        /* 
+        ennek oka, hogy azokat az aszinkron futó függvényeket(DOMevent(), setTimeout(), ajaxRequest(), stb.) ezek kikerülnek a böngészőhöz, 
+        és a callback funtion-juk egy ún task queue-bek kerül (ebből is több fajta van), és onnan csak akkor akkor hívja le az éppen soron következőt
+        a stack, ha az már teljesen üres, az összes szinkron function lefutott
+        */
+        setTimeout(() => console.log(1000), 1000);
+
+        console.log('end');
+    </script>
+
+</body>
+
+</html>
