@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        setTimeout(() => console.log(1), 1);
+        setTimeout(() => console.log(0), 0);
+        // előbb írja ki az 1 millsecundumra állítottat, mint a nullára
+        /* 
+        a két függvény futása között több idő telik el mint 1 millisecundum, 
+        ezért mire a 0-ás bekerül a Task Queue-be, addigra már ott van az 1-es callbackje
+        */
+
+        setTimeout(() => console.log(1000), 1000);
+
+        for (let i = 0; i < 5000; i++) {
+            console.log(i);
+        }
+        // míg ez a loop fut közben az 1000-es callbackje már bekerül a Task Queue-be
+
+        setTimeout(() => console.log(900), 900);
+    </script>
+
+</body>
+
+</html>
