@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        /* 
+                // EGY TIPIKUS HIBA, hogy nem callback function-t használunk:
+                let result;
+
+                function request(method, url) {
+                    const xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = () => {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            result = JSON.parse(xhr.responseText);
+                        }
+                    }
+                    xhr.open(method, url, true) // itt mindig true a harmadik paraméter, mert ha nem akkor szinkron függvényként fut, és blokkolja a program futását, amíg nem teljesül a request
+                    xhr.send()
+                }
+
+                request('GET', './data.json');
+
+                console.log(result); // itt undefined-et kapunk, mert a console.log előbb lefut, mint a result értéket kapott volna, ezért kell callback function-t használni
+        */
+        // HELYETTE, mindig használjunk callback funtcion-t:
+
+        function callback(response) {
+            const result = JSON.parse(response);
+            console.log(result);
+        }
+
+        // itt valójában felesleges a callback függvényt paraméterként átadni, mert globálisan elérhető, de JS-ben ez a szokás ahogy látom
+        function request(method, url, callback) {
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    callback(xhr.responseText);
+                }
+            }
+            xhr.open(method, url, true)
+            xhr.send()
+        }
+
+        request('GET', './data.json', callback);
+    </script>
+
+</body>
+
+</html>
