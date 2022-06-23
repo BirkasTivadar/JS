@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // return() metódus hatása a generátor függvényre
+
+        function* generatorFunction1() {
+            yield 1;
+            return 'end';
+            yield 2;
+            yield 3;
+        }
+
+        const generatorObject1 = generatorFunction1();
+        console.log(generatorObject1.next().value);
+        // return utáni hívás
+        console.log(generatorObject1.next().value);
+        console.log(generatorObject1.next().value);
+
+        // a yield csak szünetelteti a függvény futását, a return hatására viszont kilép a program függyvényből
+
+        // úgy is ki tudok lépni a generátor függvényből, hogy kivül meghívom a generator object return() metódusát
+        function* generatorFunction2() {
+            yield 1;
+            yield 2;
+            yield 3;
+        }
+
+        const generatorObject2 = generatorFunction2();
+        console.log(generatorObject2.next());
+
+        generatorObject2.return(console.log('end2')); // ez esetben nem kell előre eldöntenem, mikor fejezem be a generátor függvény futását
+
+        console.log(generatorObject2.next());
+        console.log(generatorObject2.next());
+    </script>
+
+</body>
+
+</html>
