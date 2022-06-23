@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // Generátor függvény, bármikor szüneteltethetem a futását  
+
+        // *-ot írunk a function kulcsszó után
+
+        function* languages() {
+            console.log('Start');
+            yield 'c++';
+            yield 'Java';
+            yield 'JS';
+            console.log('End');
+        }
+
+        languages();
+        /* 
+        hiába hívom meg, a függvény törzse nem fut le, 
+        mert egy generatorObject-el tér vissza, ami egy iterátor
+        */
+
+        // minden iterátornak van egy next() metódusa
+        const generatorObject = languages();
+        console.log(generatorObject.next()); // ekkor lefut az első yield-ig, és ha amíg nincs vége, újra visszaad egy generatorObject-et
+
+        // a generatorObject-nek két property-je van, 1. value: a yield után ami van , 2. done: boolean, ami azt jelzi vége van e a függvénynek (ha ez true, akkor a value undefined )
+        console.log(generatorObject.next());
+        console.log(generatorObject.next());
+        console.log(generatorObject.next());
+    </script>
+
+</body>
+
+</html>
