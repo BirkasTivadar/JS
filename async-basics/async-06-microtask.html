@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button class="click-me">Click</button>
+    <script>
+        'use strict';
+
+        const btn = document.querySelector('.click-me');
+
+        btn.addEventListener('click', () => {
+            console.log('Listener 1');
+
+            setTimeout(console.log, 0, 'setTimeout 1'); // setTimeout-nak így is megadhatom paraméterben
+
+            Promise
+                .resolve('Promise 1')
+                .then(console.log)
+        })
+
+        btn.addEventListener('click', () => {
+                console.log('Listener 2');
+
+                setTimeout(console.log, 0, 'setTimeout 2'); // setTimeout-nak így is megadhatom paraméterben
+
+                Promise
+                    .resolve('Promise 2')
+                    .then(console.log)
+            })
+            /* 
+             a promise-ok azért kerülnek mindegyik setTimeout elé, mert a Promise-ok és egyes Observer-ek nem a Task Queue-be kerülnek,
+             hanem a MicroTask Queue-be, és a MicroTask Queue prioritást élvez a Task Queue-hez képest, és minden egyes Event Loop-nál
+             nem egy task kerül be a Stack-be a MicroTask Queue-ből, hanem az összes, míga Task Queue-ből minden egyes Event Loop-nál,
+             csak egy kerül be, és miután az összes Promise lefutott akkor kerül be az első callback a Task Queue-ből 
+            */
+
+        // youtube Philip Roberts Event Loop
+    </script>
+
+</body>
+
+</html>
