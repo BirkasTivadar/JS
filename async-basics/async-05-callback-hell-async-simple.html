@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // ASZINKRON CALLBACK-HELL
+
+        function one(args, callback) {
+            setTimeout(() => {
+                callback();
+                console.log(args * 1)
+            }, 1000);
+        }
+
+        function two(args, callback) {
+            setTimeout(() => {
+                callback();
+                console.log(args * 2)
+            }, 10000);
+        }
+
+        function three(args, callback) {
+            setTimeout(() => {
+                callback();
+                console.log(args * 3)
+            }, 3000);
+        }
+
+        function four(args, callback) {
+            setTimeout(() => {
+                callback();
+                console.log(args * 4)
+            }, 5000);
+        }
+
+        function five(args, callback) {
+            setTimeout(() => {
+                callback();
+                console.log(args * 5)
+            }, 1000);
+        }
+
+        one(1, function() {
+            two(2, function() {
+                three(3, function() {
+                    four(4, function() {
+                        five(5, function() {
+                            // ...
+                        })
+                    })
+                })
+            })
+        })
+
+        // helyett? :
+        /* 
+                function one(args) {
+                    setTimeout(() => {
+                        return args * 1;
+                    }, 1000);
+                }
+
+                function two(args) {
+                    setTimeout(() => {
+                        return args * 2;
+                    }, 210000);
+                }
+
+                function three(args) {
+                    setTimeout(() => {
+                        return args * 3;
+                    }, 3000);
+                }
+
+                function four(args) {
+                    setTimeout(() => {
+                        return args * 4;
+                    }, 5000);
+                }
+
+                function five(args) {
+                    setTimeout(() => {
+                        return args * 5;
+                    }, 1000);
+                }
+
+                function caller() {
+                    let result1 = one(1);
+                    let result2 = two(result1);
+                    let result3 = three(result2);
+                    let result4 = four(result3);
+                    let result5 = five(result4);
+                    console.log(result5);
+                }
+
+                caller();
+         */
+        /* 
+        aszinkron kódnál ez a megoldás nem működik, mivel a five callback functionja még nem hívódott meg, és a többi sem, mire logolni kellene,
+        ezért régen a callback-hell-es megoldást használták
+        */
+    </script>
+
+</body>
+
+</html>
