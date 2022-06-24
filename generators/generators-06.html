@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        function* idGenerator() {
+            let id = 0;
+            while (true) {
+                yield id += 1;
+            }
+        }
+
+        const id = idGenerator();
+        console.log(id.next());
+        console.log(id.next());
+        console.log(id.next());
+        console.log(id.next());
+
+        // Fibonacci sorozat 1 1 2 3 5 8 13 .....
+        function* fibonacci(current, next) {
+            while (true) {
+                next += current;
+                current = next - current;
+                yield next;
+            }
+        }
+
+        const fibo = fibonacci(1, 1);
+        console.log(fibo.next());
+        console.log(fibo.next());
+        console.log(fibo.next());
+        console.log(fibo.next());
+        console.log(fibo.next());
+        console.log(fibo.next());
+        console.log(fibo.next());
+        console.log(fibo.next());
+
+        // mindkettőből a genrator object-en meghívott return() metódussal tudunk kilépni
+        console.log('--------------return() után--------------');
+        id.return();
+        fibo.return();
+        console.log(fibo.next());
+        console.log(id.next());
+    </script>
+
+</body>
+
+</html>
