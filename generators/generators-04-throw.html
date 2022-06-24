@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // lehetőségünk van arra, hogy egy generátor függvényre rádobjunk egy hibát
+
+        function* generatorFunctionWithTryCath() {
+            try {
+                yield 1;
+            } catch (error) {
+                console.error(error);
+            }
+            yield 2;
+            yield 3;
+        }
+
+        console.log('-------------------WithTryCatch---------------------');
+        const generatorObjectWithTryCatch = generatorFunctionWithTryCath();
+        console.log(generatorObjectWithTryCatch.next());
+
+        // itt átadunk egy hibát a generatorFunction-nek és ő fogja lekezelni a függyvényen belül, de tovább is lép, mintha a next()-et is meghívtuk volna
+        console.log(generatorObjectWithTryCatch.throw(new Error('Custom error')));
+
+        console.log(generatorObjectWithTryCatch.next());
+        console.log(generatorObjectWithTryCatch.next());
+
+
+        // ha elmarad a try-catch ág, akkor a throw() emghívásánál megszakad a függvény (és a program) futása
+        function* generatorFunctionWithoutTryCath() {
+            yield 1;
+            yield 2;
+            yield 3;
+        }
+
+        console.log('-------------------WithoutTryCatch---------------------');
+        const generatorObjectWithoutTryCatch = generatorFunctionWithoutTryCath();
+        console.log(generatorObjectWithoutTryCatch.next());
+        console.log(generatorObjectWithoutTryCatch.throw(new Error('Custom error')));
+        console.log(generatorObjectWithoutTryCatch.next());
+        console.log('End');
+    </script>
+
+</body>
+
+</html>
