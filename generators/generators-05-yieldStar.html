@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // yield*-al egy másik generátor függvény visszatérési értétkét tudom visszaadni
+
+        function* first() {
+            yield 1;
+            yield 2;
+        }
+
+        function* second() {
+            yield* first();
+            yield 3;
+            yield 4;
+            yield 5;
+        }
+
+        for (const value of second()) {
+            console.log(value);
+        }
+        // előbb lefut first() függvény végig, és utána a second()
+
+        const generatorObjectFirst = first();
+        const generatorObjectSecond = second();
+
+        // a második generátor függvény függetlenül lépteti az elsőt 
+        console.log('------------second első léptetés, first()-öt hívja-------------');
+        console.log(generatorObjectSecond.next());
+
+        console.log('------------first első léptetés--------------');
+        console.log(generatorObjectFirst.next());
+
+        console.log('------------second mássodik léptetés first()-öt hívja--------------');
+        console.log(generatorObjectSecond.next());
+        console.log('------------second harmadik léptetés--------------');
+        console.log(generatorObjectSecond.next());
+        console.log('------------second negyedik léptetés--------------');
+        console.log(generatorObjectSecond.next());
+        console.log('------------second ötödik léptetés--------------');
+        console.log(generatorObjectSecond.next());
+        console.log('------------second hatodik léptetés--------------');
+        console.log(generatorObjectSecond.next());
+
+        console.log('------------first második léptetés--------------');
+        console.log(generatorObjectFirst.next());
+        console.log('------------first harmadik léptetés--------------');
+        console.log(generatorObjectFirst.next());
+    </script>
+
+</body>
+
+</html>
